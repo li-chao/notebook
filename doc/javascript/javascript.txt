@@ -1,0 +1,23 @@
+http://www.cnblogs.com/Quains/archive/2011/04/12/2013121.html
+词法作用域 作用域链
+
+var x = "globol value";
+    var getValue = function(){
+        alert(x);    //弹出"undefined"
+        var x = "local value";
+        alert(x);    //弹出"local value";
+    }
+    getValue();
+
+js解释器在执行任何代码之前会先创建一个全局对象（global object），全局变量就是相当于这个全局对象的一个属性
+
+js的预定义机制，就是js解释器会先对var定义的变量进行初始化，应该说只是起了定义的作用当没赋值
+
+这个作用域链其实和原型链有点相似，也好似在很作用域内找不到就会向上去找。比方说开篇那个例子，找x的时候，会先在本作用域内找，有预定义知可以找到x，但是没赋值，所以是undefined值
+
+
+http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html
+undefined与null的区别
+null 表示一个值被定义了，定义为“空值”；
+undefined 表示根本不存在定义。
+
